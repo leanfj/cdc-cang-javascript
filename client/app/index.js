@@ -37,4 +37,10 @@ document.querySelector('.form').addEventListener('submit', event => {
 
   //Insere como filho do tbody
   tbody.appendChild(tr);
+
+  //limpando campos
+  campos[0].value = '';
+  campos[1].value = 1;
+  campos[2].value = 0;
+  campos[0].focus();
 });
