@@ -10,7 +10,7 @@ let tbody = document.querySelector('table tbody');
 
 console.log(tbody);
 
-//Verificando envto submit
+//Verificando envento submit
 document.querySelector('.form').addEventListener('submit', event => {
   //cancelando comportamento padrão do submit
   event.preventDefault();
@@ -42,5 +42,6 @@ document.querySelector('.form').addEventListener('submit', event => {
   campos[0].value = '';
   campos[1].value = 1;
   campos[2].value = 0;
+  //Coloca o cursor no campo data
   campos[0].focus();
 });
