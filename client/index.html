@@ -48,10 +48,15 @@
   <script>
     //instanciando um obtjeto a partir da classe negociação
     let n1 = new Negociacao(new Date(), 3, 1000.56);
-    console.log(n1.getData());
-    console.log(n1.getValor());
-    console.log(n1.getQuantidade());
-    console.log(n1.getVolume());
+
+    //Getters transforma o acesso como propriedades de objetos
+    //Novos valores atraibuidos a getters serão ignorados
+    console.log(n1.data);
+    console.log(n1.valor);
+    console.log(n1.quantidade);
+    n1.quantidade = 10;
+    console.log(n1.quantidade);
+    console.log(n1.volume);
 
   </script>
 </body>

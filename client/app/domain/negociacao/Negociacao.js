@@ -9,19 +9,20 @@ class Negociacao {
 
   //Metodos
   //Functions definindo comportamento de uma classe
-  getVolume() {
+  get volume() {
     return this._quantidade * this._valor;
   }
 
   //Metodos de Acesso a propriedades prefixadas com _ 
 
-  getData() {
+  //Sintaze get para criar propriedade getters para aceso de somente leitura
+  get data() {
     return this._data;
   }
-  getQuantidade() {
+  get quantidade() {
     return this._quantidade;
   }
-  getValor() {
+  get valor() {
     return this._valor;
   }
 }
