@@ -47,9 +47,10 @@
   <script src="app/domain/negociacao/Negociacao.js"></script>
   <script>
     //instanciando um obtjeto a partir da classe negociação
-    let n1 = new Negociacao(new Date(), 10, 20.75);
-    
+    let n1 = new Negociacao(new Date(), 3, 1000.56);
+    let volume = n1.obterVolume();
     console.log(n1);
+    console.log(volume);
 
   </script>
 </body>

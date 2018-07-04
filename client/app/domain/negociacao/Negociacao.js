@@ -6,4 +6,10 @@ class Negociacao {
     this.quantidade = quantidade;
     this.valor = valor;
   }
+
+  //Metodos
+  //Functions definindo comportamento de uma classe
+  obterVolume() {
+    return this.quantidade * this.valor;
+  }
 }
