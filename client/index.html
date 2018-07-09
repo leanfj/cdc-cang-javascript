@@ -45,50 +45,8 @@
     <tfoot></tfoot>
   </table>
   <script src="app/domain/negociacao/Negociacao.js"></script>
-  <script>
-    //instanciando um obtjeto a partir da classe negociação
-    let n1 = new Negociacao(new Date(), 3, 1000.56);
-
-    //Getters transforma o acesso como propriedades de objetos
-    //Novos valores atraibuidos a getters serão ignorados
-    console.log(n1.data);
-    console.log(n1.valor);
-    console.log(n1.quantidade);
-    n1.quantidade = 10; //valor ignorado
-    console.log(n1.quantidade);
-    console.log(n1.volume);
-
-    //Congela o objeto não podendo ter suas propriedade alteradas
-    // Object.freeze(n1);
-    console.log(Object.isFrozen(n1));
-    n1._quantidade = 20000000000000;
-    console.log(n1._quantidade);
-
-    console.log('-----------------------')
-    let n2 = new Negociacao(new Date(), 5, 102.23);
-    console.log(Object.isFrozen(n2));
-
-    console.log(n2.data);
-    // let outraData = new Date();
-    // outraData.setDate(11);
-    // n2.data = outraData;
-    n2.data.setDate(11)
-    console.log(n2.data);
-    console.log('-----------------------')
-    let hoje = new Date();
-    
-    let n3 = new Negociacao(hoje, 10, 10);
-    console.log(n3.data);
-    hoje.setDate(11);
-    console.log(n3.data);
-    console.log('-----------------------')
-
-    let aux1 = {nome: 'Leandro'};
-    let aux2 = {idade: 32};
-    Object.assign(aux1, aux2);
-
-    console.log(aux1);
-  </script>
+  <script src="app/controllers/NegociacaoController.js"></script>
+  <script src="app/app.js"></script>
 </body>
 
 </html>
