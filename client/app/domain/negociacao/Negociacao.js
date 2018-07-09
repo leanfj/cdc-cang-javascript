@@ -2,9 +2,8 @@ class Negociacao {
   //Definir propriedades de classes
   //parametros podem ser definidos na funçao constructor
   constructor(data, quantidade, valor) {
-    this._data = new Date(data.getTime());
-    this._quantidade = quantidade;
-    this._valor = valor;
+    //Copia de propriedades
+    Object.assign(this, {_data: new Date(data.getTime()), _quantidade: quantidade, _valor: valor});
     //Congelando objeto
     Object.freeze(this);
   }
