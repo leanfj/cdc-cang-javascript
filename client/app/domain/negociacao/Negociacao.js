@@ -1,9 +1,11 @@
 class Negociacao {
   //Definir propriedades de classes
   //parametros podem ser definidos na funçao constructor
-  constructor(data, quantidade, valor) {
+  constructor(_data, _quantidade, _valor) {
     //Copia de propriedades
-    Object.assign(this, {_data: new Date(data.getTime()), _quantidade: quantidade, _valor: valor});
+    //Variaveis de argumentos passada para copia em objeto literais Es06
+    Object.assign(this, {_quantidade, _valor});
+    this._data = new Date(_data.getTime());
     //Congelando objeto
     Object.freeze(this);
   }
