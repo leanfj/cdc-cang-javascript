@@ -26,8 +26,11 @@ class NegociacaoController {
 		// console.log(data);
 
 		//spread operator separa o array para ser trabalhado com cada um dos seus elementos
-		let date = new Date(...this._inputData.value.split('-').map((item, index) => item - index % 2 )
-			);
+		//Utilização de nova calsse de converção criada
+		// let converter = new DateConverter();
+
+
+		let date = DateConverter.toDate(this._inputData.value);
 		//Arrow functions nos permiti omitir {} e o return quando se trata de apena uma instrução
 
 		let negociacao = new Negociacao(
@@ -36,9 +39,9 @@ class NegociacaoController {
 			parseFloat(this._inputValor.value)
 		);
 
+		let diaMesAno = DateConverter.toText(negociacao.data);
 
-
-		console.log(negociacao);
+		console.log(diaMesAno);
 
 	}
 }
