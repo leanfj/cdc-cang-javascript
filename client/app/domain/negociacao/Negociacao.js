@@ -7,8 +7,7 @@ class Negociacao {
     Object.assign(this, {_quantidade, _valor});
     this._data = new Date(_data.getTime());
     //Congelando objeto
-    Object.freeze(this);
-  }
+    Object.freeze(this);  }
 
   //Metodos
   //Functions definindo comportamento de uma classe
