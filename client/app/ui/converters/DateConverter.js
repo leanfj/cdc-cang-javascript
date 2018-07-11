@@ -5,7 +5,7 @@ class DateConverter {
 	}
 	//Podemos chamar metodos diretamente de classe quando declarados com o static para metodos que não manipulam propriedade de instacias
 	static toText (data) {
-		return data.getDate() + '/' + data.getMonth() + '/' + data.getFullYear();
+		return `${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()}`;
 	}
 
 	static toDate (text) {
