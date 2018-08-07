@@ -15,13 +15,13 @@ class NegociacaoController {
     event.preventDefault();
 
     // let date = this._inputData.value;
-    // //Utilizar metodo split para criar um arrays separando a string no indicador
+    //Utilizar metodo split para criar um arrays separando a string no indicador
     // let formatedDate = date.split('-');
     // console.log(formatedDate);
-    // //Juntando elementos do array em uma string com elemento separados pelo indicador
+    //Juntando elementos do array em uma string com elemento separados pelo indicador
     // formatedDate = formatedDate.join(',');
     // console.log(formatedDate);
-    // //new Date pode receber como parametros um arrays ou string separados por virgula
+    //new Date pode receber como parametros um arrays ou string separados por virgula
     // let data = new Date(formatedDate);
     // console.log(data);
 
@@ -29,17 +29,25 @@ class NegociacaoController {
     //Utilização de nova calsse de converção criada
     // let converter = new DateConverter();
 
-    let date = DateConverter.toDate(this._inputData.value);
     //Arrow functions nos permiti omitir {} e o return quando se trata de apena uma instrução
 
-    let negociacao = new Negociacao(
-      date,
+    this._negociacoes.adiciona(this._criaNegociacao());
+
+    this._limpaformulario();
+  }
+
+  _criaNegociacao() {
+    return new Negociacao(
+      DateConverter.toDate(this._inputData.value),
       parseInt(this._inputQuantidade.value),
       parseFloat(this._inputValor.value)
     );
+  }
 
-    this._negociacoes.adiciona(negociacao);
-
-    console.log(this._negociacoes.paraArray());
+  _limpaformulario() {
+    this._inputData.value = "";
+    this._inputQuantidade.value = 1;
+    this._inputValor.value = 0.0;
+    this._inputData.focus();
   }
 }
