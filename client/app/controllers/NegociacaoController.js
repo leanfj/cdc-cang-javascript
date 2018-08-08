@@ -11,6 +11,9 @@ class NegociacaoController {
     this._negociacoes = new Negociacoes();
     this._negociacaoView = new NegociacaoView("#negociacoes");
     this._negociacaoView.update(this._negociacoes);
+    this._mensagem = new Mensagem();
+    this._mensagemView = new MensagemView("#mensagemView");
+    this._mensagemView.update(this._mensagem);
   }
   adciona(event) {
     //Previnir evento padrão
@@ -34,8 +37,11 @@ class NegociacaoController {
     //Arrow functions nos permiti omitir {} e o return quando se trata de apena uma instrução
 
     this._negociacoes.adiciona(this._criaNegociacao());
+    this._mensagem.texto = "Negociação adcionada com Sucesso";
     this._negociacaoView.update(this._negociacoes);
+    this._mensagemView.update(this._mensagem);
     this._limpaformulario();
+    this._mensagemView.limpaMensagem();
   }
 
   _criaNegociacao() {

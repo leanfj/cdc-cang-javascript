@@ -12,6 +12,8 @@
 
 <body class="container">
   <h1 class="text-center">Negociações</h1>
+  <!-- Insert Mensagem -->
+  <div id="mensagemView"></div>
   <form action="" class="form">
     <div class="form-group">
       <label for="data">Data</label>
@@ -34,11 +36,15 @@
   <hr>
   <!-- Insert Table -->
   <div id="negociacoes"></div>
+
+  <!-- scripts -->
   <script src="app/domain/negociacao/Negociacao.js"></script>
   <script src="app/controllers/NegociacaoController.js"></script>
   <script src="app/ui/converters/DateConverter.js"></script>
   <script src="app/domain/negociacao/Negociacoes.js"></script>
   <script src="app/ui/views/NegociacaoView.js"></script>
+  <script src="app/ui/models/Mensagem.js"></script>
+  <script src="app/ui/views/MensagemView.js"></script>
 
   <script src="app/app.js"></script>
 </body>
