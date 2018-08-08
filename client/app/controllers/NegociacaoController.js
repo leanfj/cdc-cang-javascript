@@ -9,6 +9,8 @@ class NegociacaoController {
     this._inputQuantidade = $("#quantidade");
     this._inputValor = $("#valor");
     this._negociacoes = new Negociacoes();
+    this._negociacaoView = new NegociacaoView("#negociacoes");
+    this._negociacaoView.update(this._negociacoes);
   }
   adciona(event) {
     //Previnir evento padrão
@@ -32,7 +34,7 @@ class NegociacaoController {
     //Arrow functions nos permiti omitir {} e o return quando se trata de apena uma instrução
 
     this._negociacoes.adiciona(this._criaNegociacao());
-
+    this._negociacaoView.update(this._negociacoes);
     this._limpaformulario();
   }
 
