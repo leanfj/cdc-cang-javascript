@@ -2,17 +2,17 @@ class NegociacaoController {
   constructor() {
     //Busca adcionadas ao constructor para evitar pecorrer o DOM
     //bind para manter o contexto do this em document
-    let $ = document.querySelector.bind(document);
+    const $ = document.querySelector.bind(document);
 
     //elementos HTML
-    this._inputData = $("#data");
-    this._inputQuantidade = $("#quantidade");
-    this._inputValor = $("#valor");
+    this._inputData = $('#data');
+    this._inputQuantidade = $('#quantidade');
+    this._inputValor = $('#valor');
     this._negociacoes = new Negociacoes();
-    this._negociacaoView = new NegociacaoView("#negociacoes");
+    this._negociacaoView = new NegociacaoView('#negociacoes');
     this._negociacaoView.update(this._negociacoes);
     this._mensagem = new Mensagem();
-    this._mensagemView = new MensagemView("#mensagemView");
+    this._mensagemView = new MensagemView('#mensagemView');
     this._mensagemView.update(this._mensagem);
   }
   adciona(event) {
@@ -37,7 +37,7 @@ class NegociacaoController {
     //Arrow functions nos permiti omitir {} e o return quando se trata de apena uma instrução
 
     this._negociacoes.adiciona(this._criaNegociacao());
-    this._mensagem.texto = "Negociação adcionada com Sucesso";
+    this._mensagem.texto = 'Negociação adcionada com Sucesso';
     this._negociacaoView.update(this._negociacoes);
     this._mensagemView.update(this._mensagem);
     this._limpaformulario();
@@ -53,7 +53,7 @@ class NegociacaoController {
   }
 
   _limpaformulario() {
-    this._inputData.value = "";
+    this._inputData.value = '';
     this._inputQuantidade.value = 1;
     this._inputValor.value = 0.0;
     this._inputData.focus();
