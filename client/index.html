@@ -1,52 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Negociações</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Negociações</title>
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/bootstrap-theme.css">
-</head>
-
-<body class="container">
-  <h1 class="text-center">Negociações</h1>
-  <!-- Insert Mensagem -->
-  <div id="mensagemView"></div>
-  <form action="" class="form">
-    <div class="form-group">
-      <label for="data">Data</label>
-      <input type="date" id="data" class="form-control" required autofocus>
+  <body class="container">
+    <h1 class="text-center">Negociações</h1>
+    <!-- Insert Mensagem -->
+    <div id="mensagemView"></div>
+    <form action="" class="form">
+      <div class="form-group">
+        <label for="data">Data</label>
+        <input type="date" id="data" class="form-control" required autofocus />
+      </div>
+      <div class="form-group">
+        <label for="quantidade">Quantidade</label>
+        <input
+          type="number"
+          min="1"
+          step="1"
+          value="1"
+          id="quantidade"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="valor">Valor</label>
+        <input
+          type="number"
+          min="0.01"
+          step="0.01"
+          value="0.0"
+          id="valor"
+          class="form-control"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Incluir</button>
+    </form>
+    <div class="text-center">
+      <button
+        type="button"
+        id="botao-importa"
+        class="btn btn-primary text-center"
+      >
+        Importar negociações
+      </button>
+      <button
+        type="button"
+        id="botao-importa"
+        class="btn btn-danger text-center"
+      >
+        Apagar
+      </button>
     </div>
-    <div class="form-group">
-      <label for="quantidade">Quantidade</label>
-      <input type="number" min="1" step="1" value="1" id="quantidade" class="form-control" required>
-    </div>
-    <div class="form-group">
-      <label for="valor">Valor</label>
-      <input type="number" min="0.01" step="0.01" value="0.0" id="valor" class="form-control" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Incluir</button>
-  </form>
-  <div class="text-center">
-    <button type="button" id="botao-importa" class="btn btn-primary text-center">Importar negociações</button>
-    <button type="button" id="botao-importa" class="btn btn-danger text-center">Apagar</button>
-  </div>
-  <hr>
-  <!-- Insert Table -->
-  <div id="negociacoes"></div>
+    <hr />
+    <!-- Insert Table -->
+    <div id="negociacoes"></div>
 
-  <!-- scripts -->
-  <script src="app/domain/negociacao/Negociacao.js"></script>
-  <script src="app/controllers/NegociacaoController.js"></script>
-  <script src="app/ui/converters/DateConverter.js"></script>
-  <script src="app/domain/negociacao/Negociacoes.js"></script>
-  <script src="app/ui/views/NegociacaoView.js"></script>
-  <script src="app/ui/models/Mensagem.js"></script>
-  <script src="app/ui/views/MensagemView.js"></script>
+    <!-- scripts -->
+    <script src="app/domain/negociacao/Negociacao.js"></script>
+    <script src="app/controllers/NegociacaoController.js"></script>
+    <script src="app/ui/converters/DateConverter.js"></script>
+    <script src="app/domain/negociacao/Negociacoes.js"></script>
+    <script src="app/ui/views/View.js"></script>
+    <script src="app/ui/views/NegociacaoView.js"></script>
+    <script src="app/ui/models/Mensagem.js"></script>
+    <script src="app/ui/views/MensagemView.js"></script>
 
-  <script src="app/app.js"></script>
-</body>
-
+    <script src="app/app.js"></script>
+  </body>
 </html>
