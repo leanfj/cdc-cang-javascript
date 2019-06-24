@@ -1,4 +1,4 @@
-class NegociacaoView extends View {
+class NegociacoesView extends View {
   template(model) {
     return `
       <table class="table table-hover table-bordered">
@@ -24,7 +24,7 @@ class NegociacaoView extends View {
                   </tr>
                 `
             )
-            .join('')}
+            .join("")}
         </tbody>
         <tfoot>
           <tr>

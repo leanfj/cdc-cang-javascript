@@ -66,22 +66,30 @@
     <script src="app/ui/converters/DateConverter.js"></script>
     <script src="app/domain/negociacao/Negociacoes.js"></script>
     <script src="app/ui/views/View.js"></script>
-    <script src="app/ui/views/NegociacaoView.js"></script>
+    <script src="app/ui/views/NegociacoesView.js"></script>
     <script src="app/ui/models/Mensagem.js"></script>
     <script src="app/ui/views/MensagemView.js"></script>
-
+    <script src="app/util/ProxyFactory.js"></script>
 
     <script src="app/app.js"></script>
 
-    <script>
-      const negociacao = new Proxy(new Negociacao(new Date(), 1, 100), {
-        get(target, prop, reciever){
-          console.log(`a propriedade "${prop}" caiu na armadilha!`);
-          return target[prop];
+    <!-- <script>
+      const negociacoes = new Proxy(new Negociacoes(), {
+        get(target, prop, reciever) {
+          if (
+            typeof target[prop] == typeof Function &&
+            ["adiciona", "esvazia"].includes(prop)
+          ) {
+            return function() {
+              console.log(`${prop} disparou a armadilha`);
+              target[prop].apply(target, arguments);
+            };
+          } else {
+            return target[prop];
+          }
         }
-      })
-      negociacao._quantidade = 10;
-      negociacao._valor = 100;
-    </script>
+      });
+      negociacoes.adciona(new Negociacao(new Date(), 1, 100));
+    </script> -->
   </body>
 </html>
