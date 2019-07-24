@@ -7,6 +7,6 @@ class View {
   }
 
   template(model) {
-    throw new Error('Você precisa implementar o método de template');
+    throw new Error("Você precisa implementar o método de template");
   }
 }

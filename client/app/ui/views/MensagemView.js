@@ -4,10 +4,4 @@ class MensagemView extends View {
       ? `<p class="alert alert-info">${model.texto}</p>`
       : `<p></p>`;
   }
-
-  limpaMensagem() {
-    setTimeout(() => {
-      this.update('');
-    }, 2000);
-  }
 }
