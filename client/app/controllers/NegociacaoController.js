@@ -20,7 +20,8 @@ class NegociacaoController {
     this._negociacoes = new Bind(
       new Negociacoes(),
       new NegociacoesView("#negociacoes"),
-      ["adiciona", "esvazia"]
+      "adiciona",
+      "esvazia"
     );
 
     // this._mensagem = ProxyFactory.create(new Mensagem(), ["texto"], model =>
@@ -32,7 +33,7 @@ class NegociacaoController {
     this._mensagem = new Bind(
       new Mensagem(),
       new MensagemView("#mensagemView"),
-      ["texto"]
+      "texto"
     );
   }
   adiciona(event) {
