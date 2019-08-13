@@ -86,10 +86,9 @@ class NegociacaoService {
       this.obterNegociacoesDaSemanaRetrasada()
     ])
       .then(periodo => {
-        return periodo.reduce(
-          (novoArray, item) => novoArray.concat(item.negociacoes),
-          []
-        );
+        return periodo
+          .reduce((novoArray, item) => novoArray.concat(item.negociacoes), [])
+          .sort((a, b) => b.data.getTime() - a.data.getTime());
       })
       .catch(err => {
         console.log(err);
