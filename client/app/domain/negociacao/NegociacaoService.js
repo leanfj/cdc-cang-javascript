@@ -85,11 +85,11 @@ class NegociacaoService {
       this.obterNegociacoesDaSemanaAnterior(),
       this.obterNegociacoesDaSemanaRetrasada()
     ])
-      .then(periodo => {
-        return periodo
+      .then(periodo =>
+        periodo
           .reduce((novoArray, item) => novoArray.concat(item.negociacoes), [])
-          .sort((a, b) => b.data.getTime() - a.data.getTime());
-      })
+          .sort((a, b) => b.data.getTime() - a.data.getTime())
+      )
       .catch(err => {
         console.log(err);
         throw new Error("Não foi possível obter negociações do período");
