@@ -9,13 +9,17 @@
   <body>
     <script>
       const openRequest = indexedDB.open("jscangaceiro", 1);
-
+      let connection = null;
       openRequest.onupgradeneeded = e => {
         console.log("Cria ou altera um banco já existente");
+
+        connection = e.target.result;
       };
 
       openRequest.onsuccess = e => {
         console.log("Conexão obtida com sucesso");
+
+        connection = e.target.result;
       };
 
       openRequest.onerror = e => {
