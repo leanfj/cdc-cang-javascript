@@ -33,6 +33,21 @@
       openRequest.onerror = e => {
         console.log(e.target.error);
       };
+
+      function adciona() {
+        const negociacao = new Negociacao(new Date(), 200, 1);
+
+        const request = connection
+          .transaction(["negociacoes"], "readwrite")
+          .objectStore("negociacoes")
+          .add(negociacao);
+
+        request.onsuccess = e => console.log("Negociação salva com sucesso");
+
+        request.onerror = e =>
+          console.log("Não foi possível salvar a negociação");
+      }
     </script>
+    <script src="app/domain/negociacao/Negociacao.js"></script>
   </body>
 </html>
