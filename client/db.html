@@ -14,6 +14,14 @@
         console.log("Cria ou altera um banco já existente");
 
         connection = e.target.result;
+
+        //Criando Store negociacoes
+
+        if (connection.objectStoreNames.contains("negociacoes")) {
+          connection.deletObjectStore("negociacoes");
+        }
+
+        connection.createObjetcStore("negociacoes", { autoIncrement: true });
       };
 
       openRequest.onsuccess = e => {
