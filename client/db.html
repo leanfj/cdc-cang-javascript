@@ -47,6 +47,36 @@
         request.onerror = e =>
           console.log("Não foi possível salvar a negociação");
       }
+
+      function listaTodos() {
+        const negociacoes = [];
+
+        const cursor = connection
+          .transaction(["negociacoes"], "readwrite")
+          .objectStore("negociacoes")
+          .openCursor();
+
+        cursor.onsuccess = e => {
+          const atual = e.target.result;
+
+          if (atual) {
+            const negociacao = new Negociacao(
+              atual.value._data,
+              atual.value._quantidade,
+              atual.value._valor
+            );
+
+            negociacoes.push(negociacao);
+            atual.continue();
+          } else {
+            console.log(negociacoes);
+          }
+        };
+
+        cursor.onerror = e => {
+          console.log(`Error: ${e.target.error.name}`);
+        };
+      }
     </script>
     <script src="app/domain/negociacao/Negociacao.js"></script>
   </body>
