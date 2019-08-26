@@ -1,11 +1,15 @@
 const stores = ["negociacoes"];
-
+let connection = null;
 class ConnectionFactory {
   constructor() {
     throw new Error("Não é possível criar instâncias dessa Classe");
   }
   static getConnection() {
     return new Promise((resolve, reject) => {
+      if (connection) {
+        return resolve(connection);
+      }
+
       const openRequest = indexedDB.open("jscangaceiro", 2);
 
       openRequest.onupgradeneeded = e => {
@@ -13,6 +17,8 @@ class ConnectionFactory {
       };
 
       openRequest.onsuccess = e => {
+        connection = e.target.result;
+
         resolve(e.target.result);
       };
 
