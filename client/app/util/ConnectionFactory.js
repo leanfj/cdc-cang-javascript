@@ -41,5 +41,11 @@ const ConnectionFactory = (() => {
         connection.createObjectStore(store, { autoIncrement: true });
       });
     }
+
+    static closeConnection() {
+      if (connection) {
+        connection.close();
+      }
+    }
   };
 })();
