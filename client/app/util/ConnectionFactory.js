@@ -19,7 +19,9 @@ const ConnectionFactory = (() => {
 
         openRequest.onsuccess = e => {
           connection = e.target.result;
-
+          connection.close = () => {
+            throw new Error("Você não pode fechar diretamente a conexão");
+          };
           resolve(e.target.result);
         };
 
