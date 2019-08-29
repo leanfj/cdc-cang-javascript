@@ -37,7 +37,9 @@ class NegociacaoController {
     );
 
     this._service = new NegociacaoService();
-
+    this._init();
+  }
+  _init() {
     DaoFactory.getNegociacaoDao()
       .then(dao => dao.listaTodos())
       .then(negociacoes =>
