@@ -43,10 +43,15 @@ class NegociacaoController {
       //Previnir evento padrão
       event.preventDefault();
 
-      this._negociacoes.adiciona(this._criaNegociacao());
-      this._mensagem.texto = "Negociação adicionada com Sucesso";
+      const negociacao = this._criaNegociacao();
 
-      this._limpaformulario();
+      DaoFactory.getNegociacaoDao()
+        .then(dao => dao.adciona(negociacao))
+        .then(() => {
+          this._negociacoes.adiciona(negociacao);
+          this._mensagem.texto = "Negociação adicionada com Sucesso";
+          this._limpaformulario();
+        });
     } catch (error) {
       console.log(error);
       console.log(error.stack);
