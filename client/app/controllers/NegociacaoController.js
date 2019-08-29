@@ -40,7 +40,7 @@ class NegociacaoController {
     this._init();
   }
   _init() {
-    DaoFactory.getNegociacaoDao()
+    getNegociacaoDao()
       .then(dao => dao.listaTodos())
       .then(negociacoes =>
         negociacoes.forEach(negociacao =>
@@ -56,7 +56,7 @@ class NegociacaoController {
 
       const negociacao = this._criaNegociacao();
 
-      DaoFactory.getNegociacaoDao()
+      getNegociacaoDao()
         .then(dao => dao.adciona(negociacao))
         .then(() => {
           this._negociacoes.adiciona(negociacao);
@@ -91,7 +91,7 @@ class NegociacaoController {
   }
 
   apaga() {
-    DaoFactory.getNegociacaoDao()
+    getNegociacaoDao()
       .then(dao => dao.apagaTodos())
       .then(() => {
         this._negociacoes.esvazia();
