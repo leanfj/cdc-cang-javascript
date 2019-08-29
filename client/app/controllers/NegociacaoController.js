@@ -91,8 +91,13 @@ class NegociacaoController {
   }
 
   apaga() {
-    this._negociacoes.esvazia();
-    this._mensagem.texto = "Negociações Apagada com sucesso";
+    DaoFactory.getNegociacaoDao()
+      .then(dao => dao.apagaTodos())
+      .then(() => {
+        this._negociacoes.esvazia();
+        this._mensagem.texto = "Negociações Apagada com sucesso";
+      })
+      .catch(err => (this._mensagem.texto = err));
   }
 
   importaNegociacoes() {
