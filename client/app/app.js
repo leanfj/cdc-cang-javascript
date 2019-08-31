@@ -1,3 +1,5 @@
+import { NegociacaoController } from "./controllers/NegociacaoController";
+
 //Instacia do Controller
 const controller = new NegociacaoController();
 

@@ -1,4 +1,4 @@
-class Negociacao {
+export class Negociacao {
   //Definir propriedades de classes
   //parametros podem ser definidos na funçao constructor
   constructor(_data, _quantidade, _valor) {
