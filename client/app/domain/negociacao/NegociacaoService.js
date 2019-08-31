@@ -1,4 +1,4 @@
-System.register(["../../util/HttpService.js", "./Negociacao.js", "../../util/ApplicationException"], function (_export, _context) {
+System.register(["../../util/HttpService.js", "./Negociacao.js", "../../util/ApplicationException.js"], function (_export, _context) {
   "use strict";
 
   var HttpService, Negociacao, ApplicationException;
@@ -37,8 +37,8 @@ System.register(["../../util/HttpService.js", "./Negociacao.js", "../../util/App
       HttpService = _utilHttpServiceJs.HttpService;
     }, function (_NegociacaoJs) {
       Negociacao = _NegociacaoJs.Negociacao;
-    }, function (_utilApplicationException) {
-      ApplicationException = _utilApplicationException.ApplicationException;
+    }, function (_utilApplicationExceptionJs) {
+      ApplicationException = _utilApplicationExceptionJs.ApplicationException;
     }],
     execute: function () {
       class NegociacaoService {
