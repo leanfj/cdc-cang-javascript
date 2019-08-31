@@ -1,12 +1,11 @@
 import { Negociacao, NegociacaoService, Negociacoes } from "../domain/index.js";
 import {
-  DataInvalidaException,
   DateConverter,
   Mensagem,
   MensagemView,
   NegociacoesView
 } from "../ui/index.js";
-import { Bind, getNegociacaoDao } from "../util/index.js";
+import { Bind, getNegociacaoDao, getExceptionMessage } from "../util/index.js";
 
 export class NegociacaoController {
   constructor() {
@@ -55,7 +54,7 @@ export class NegociacaoController {
       const negociacoes = await dao.listaTodos();
       negociacoes.forEach(negociacao => this._negociacoes.adiciona(negociacao));
     } catch (error) {
-      this._mensagem.texto = error.message;
+      this._mensagem.texto = getExceptionMessage(error);
     }
   }
 
@@ -75,7 +74,7 @@ export class NegociacaoController {
       console.log(error);
       console.log(error.stack);
       if (error instanceof DataInvalidaException) {
-        this._mensagem.texto = error.message;
+        this._mensagem.texto = getExceptionMessage(error);
       } else {
         this._mensagem.texto =
           "Um erro nao esperado aconteceu. Entre em contato com o suporte";
@@ -105,7 +104,7 @@ export class NegociacaoController {
       this._negociacoes.esvazia();
       this._mensagem.texto = "Negociações Apagada com sucesso";
     } catch (error) {
-      this._mensagem.texto = error.message;
+      this._mensagem.texto = getExceptionMessage(error);
     }
   }
 
@@ -158,7 +157,7 @@ export class NegociacaoController {
         .forEach(negociacao => this._negociacoes.adiciona(negociacao));
       this._mensagem.texto = "Negociações do período importadas com sucesso";
     } catch (error) {
-      this._mensagem.texto = error.message;
+      this._mensagem.texto = getExceptionMessage(error);
     }
   }
 }

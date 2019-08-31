@@ -1,7 +1,7 @@
 System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], function (_export, _context) {
   "use strict";
 
-  var Negociacao, NegociacaoService, Negociacoes, DataInvalidaException, DateConverter, Mensagem, MensagemView, NegociacoesView, Bind, getNegociacaoDao;
+  var Negociacao, NegociacaoService, Negociacoes, DateConverter, Mensagem, MensagemView, NegociacoesView, Bind, getNegociacaoDao, getExceptionMessage;
 
   function _asyncToGenerator(fn) {
     return function () {
@@ -38,7 +38,6 @@ System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], fu
       NegociacaoService = _domainIndexJs.NegociacaoService;
       Negociacoes = _domainIndexJs.Negociacoes;
     }, function (_uiIndexJs) {
-      DataInvalidaException = _uiIndexJs.DataInvalidaException;
       DateConverter = _uiIndexJs.DateConverter;
       Mensagem = _uiIndexJs.Mensagem;
       MensagemView = _uiIndexJs.MensagemView;
@@ -46,6 +45,7 @@ System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], fu
     }, function (_utilIndexJs) {
       Bind = _utilIndexJs.Bind;
       getNegociacaoDao = _utilIndexJs.getNegociacaoDao;
+      getExceptionMessage = _utilIndexJs.getExceptionMessage;
     }],
     execute: function () {
       class NegociacaoController {
@@ -91,7 +91,7 @@ System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], fu
                 return _this._negociacoes.adiciona(negociacao);
               });
             } catch (error) {
-              _this._mensagem.texto = error.message;
+              _this._mensagem.texto = getExceptionMessage(error);
             }
           })();
         }
@@ -115,7 +115,7 @@ System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], fu
               console.log(error);
               console.log(error.stack);
               if (error instanceof DataInvalidaException) {
-                _this2._mensagem.texto = error.message;
+                _this2._mensagem.texto = getExceptionMessage(error);
               } else {
                 _this2._mensagem.texto = "Um erro nao esperado aconteceu. Entre em contato com o suporte";
               }
@@ -144,7 +144,7 @@ System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], fu
               _this3._negociacoes.esvazia();
               _this3._mensagem.texto = "Negociações Apagada com sucesso";
             } catch (error) {
-              _this3._mensagem.texto = error.message;
+              _this3._mensagem.texto = getExceptionMessage(error);
             }
           })();
         }
@@ -196,7 +196,7 @@ System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], fu
               });
               _this4._mensagem.texto = "Negociações do período importadas com sucesso";
             } catch (error) {
-              _this4._mensagem.texto = error.message;
+              _this4._mensagem.texto = getExceptionMessage(error);
             }
           })();
         }

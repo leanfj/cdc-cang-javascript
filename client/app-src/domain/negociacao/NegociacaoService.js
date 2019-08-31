@@ -1,5 +1,6 @@
 import { HttpService } from "../../util/HttpService.js";
 import { Negociacao } from "./Negociacao.js";
+import { ApplicationException } from "../../util/ApplicationException";
 
 export class NegociacaoService {
   constructor() {
@@ -23,7 +24,7 @@ export class NegociacaoService {
         return payLoad;
       },
       err => {
-        throw new Error("Não foi possível obter negociações");
+        throw new ApplicationException("Não foi possível obter negociações");
       }
     );
   }
@@ -48,7 +49,7 @@ export class NegociacaoService {
         return payLoad;
       },
       err => {
-        throw new Error(
+        throw new ApplicationException(
           "Não foi possível obter as negociações da semana anterior"
         );
       }
@@ -75,7 +76,7 @@ export class NegociacaoService {
         return payLoad;
       },
       err => {
-        throw new Error(
+        throw new ApplicationException(
           "Não foi possível obter as negociações da semana retrasada"
         );
       }
@@ -86,7 +87,9 @@ export class NegociacaoService {
     try {
     } catch (error) {
       console.log(error);
-      throw new Error("Não foi possível obter negociações do período");
+      throw new ApplicationException(
+        "Não foi possível obter negociações do período"
+      );
     }
 
     let periodo = await Promise.all([

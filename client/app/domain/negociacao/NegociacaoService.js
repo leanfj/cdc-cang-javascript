@@ -1,7 +1,7 @@
-System.register(["../../util/HttpService.js", "./Negociacao.js"], function (_export, _context) {
+System.register(["../../util/HttpService.js", "./Negociacao.js", "../../util/ApplicationException"], function (_export, _context) {
   "use strict";
 
-  var HttpService, Negociacao;
+  var HttpService, Negociacao, ApplicationException;
 
   function _asyncToGenerator(fn) {
     return function () {
@@ -37,6 +37,8 @@ System.register(["../../util/HttpService.js", "./Negociacao.js"], function (_exp
       HttpService = _utilHttpServiceJs.HttpService;
     }, function (_NegociacaoJs) {
       Negociacao = _NegociacaoJs.Negociacao;
+    }, function (_utilApplicationException) {
+      ApplicationException = _utilApplicationException.ApplicationException;
     }],
     execute: function () {
       class NegociacaoService {
@@ -52,7 +54,7 @@ System.register(["../../util/HttpService.js", "./Negociacao.js"], function (_exp
             };
             return payLoad;
           }, err => {
-            throw new Error("Não foi possível obter negociações");
+            throw new ApplicationException("Não foi possível obter negociações");
           });
         }
 
@@ -67,7 +69,7 @@ System.register(["../../util/HttpService.js", "./Negociacao.js"], function (_exp
 
             return payLoad;
           }, err => {
-            throw new Error("Não foi possível obter as negociações da semana anterior");
+            throw new ApplicationException("Não foi possível obter as negociações da semana anterior");
           });
         }
 
@@ -82,7 +84,7 @@ System.register(["../../util/HttpService.js", "./Negociacao.js"], function (_exp
 
             return payLoad;
           }, err => {
-            throw new Error("Não foi possível obter as negociações da semana retrasada");
+            throw new ApplicationException("Não foi possível obter as negociações da semana retrasada");
           });
         }
 
@@ -92,7 +94,7 @@ System.register(["../../util/HttpService.js", "./Negociacao.js"], function (_exp
           return _asyncToGenerator(function* () {
             try {} catch (error) {
               console.log(error);
-              throw new Error("Não foi possível obter negociações do período");
+              throw new ApplicationException("Não foi possível obter negociações do período");
             }
 
             let periodo = yield Promise.all([_this.obterNegocicoesDaSemana(), _this.obterNegociacoesDaSemanaAnterior(), _this.obterNegociacoesDaSemanaRetrasada()]);
