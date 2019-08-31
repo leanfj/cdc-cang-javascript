@@ -56,11 +56,14 @@ System.register(["../../util/HttpService.js", "./Negociacao.js"], function (_exp
           });
         }
 
-        obtemNegociacoesDoPeriodo() {
-          return Promise.all([this.obterNegocicoesDaSemana(), this.obterNegociacoesDaSemanaAnterior(), this.obterNegociacoesDaSemanaRetrasada()]).then(periodo => periodo.reduce((novoArray, item) => novoArray.concat(item.negociacoes), []).sort((a, b) => b.data.getTime() - a.data.getTime())).catch(err => {
-            console.log(err);
+        async obtemNegociacoesDoPeriodo() {
+          try {} catch (error) {
+            console.log(error);
             throw new Error("Não foi possível obter negociações do período");
-          });
+          }
+
+          let periodo = await Promise.all([this.obterNegocicoesDaSemana(), this.obterNegociacoesDaSemanaAnterior(), this.obterNegociacoesDaSemanaRetrasada()]);
+          return periodo.reduce((novoArray, item) => novoArray.concat(item.negociacoes), []).sort((a, b) => b.data.getTime() - a.data.getTime());
         }
       }
 

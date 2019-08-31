@@ -82,20 +82,20 @@ export class NegociacaoService {
     );
   }
 
-  obtemNegociacoesDoPeriodo() {
-    return Promise.all([
+  async obtemNegociacoesDoPeriodo() {
+    try {
+    } catch (error) {
+      console.log(error);
+      throw new Error("Não foi possível obter negociações do período");
+    }
+
+    let periodo = await Promise.all([
       this.obterNegocicoesDaSemana(),
       this.obterNegociacoesDaSemanaAnterior(),
       this.obterNegociacoesDaSemanaRetrasada()
-    ])
-      .then(periodo =>
-        periodo
-          .reduce((novoArray, item) => novoArray.concat(item.negociacoes), [])
-          .sort((a, b) => b.data.getTime() - a.data.getTime())
-      )
-      .catch(err => {
-        console.log(err);
-        throw new Error("Não foi possível obter negociações do período");
-      });
+    ]);
+    return periodo
+      .reduce((novoArray, item) => novoArray.concat(item.negociacoes), [])
+      .sort((a, b) => b.data.getTime() - a.data.getTime());
   }
 }

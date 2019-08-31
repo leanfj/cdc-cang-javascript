@@ -50,21 +50,28 @@ System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], fu
           this._service = new NegociacaoService();
           this._init();
         }
-        _init() {
-          getNegociacaoDao().then(dao => dao.listaTodos()).then(negociacoes => negociacoes.forEach(negociacao => this._negociacoes.adiciona(negociacao))).catch(err => this._mensagem.texto = err);
+        async _init() {
+          try {
+            const dao = await getNegociacaoDao();
+            const negociacoes = await dao.listaTodos();
+            negociacoes.forEach(negociacao => this._negociacoes.adiciona(negociacao));
+          } catch (error) {
+            this._mensagem.texto = error.message;
+          }
         }
-        adiciona(event) {
+
+        async adiciona(event) {
           try {
             //Previnir evento padrão
             event.preventDefault();
 
             const negociacao = this._criaNegociacao();
 
-            getNegociacaoDao().then(dao => dao.adciona(negociacao)).then(() => {
-              this._negociacoes.adiciona(negociacao);
-              this._mensagem.texto = "Negociação adicionada com Sucesso";
-              this._limpaformulario();
-            });
+            const dao = await getNegociacaoDao();
+            await dao.adciona(negociacao);
+            this._negociacoes.adiciona(negociacao);
+            this._mensagem.texto = "Negociação adicionada com Sucesso";
+            this._limpaformulario();
           } catch (error) {
             console.log(error);
             console.log(error.stack);
@@ -87,14 +94,18 @@ System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], fu
           this._inputData.focus();
         }
 
-        apaga() {
-          getNegociacaoDao().then(dao => dao.apagaTodos()).then(() => {
+        async apaga() {
+          try {
+            const dao = await getNegociacaoDao();
+            await dao.apagaTodos();
             this._negociacoes.esvazia();
             this._mensagem.texto = "Negociações Apagada com sucesso";
-          }).catch(err => this._mensagem.texto = err);
+          } catch (error) {
+            this._mensagem.texto = error.message;
+          }
         }
 
-        importaNegociacoes() {
+        async importaNegociacoes() {
           /* const listaNegociacoes = [];
            this._service
             .obterNegocicoesDaSemana()
@@ -126,10 +137,14 @@ System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], fu
           //   })
           //   .catch(err => (this._mensagem.texto = err));
 
-          this._service.obtemNegociacoesDoPeriodo().then(negociacoes => {
+          try {
+            const negociacoes = await this._service.obtemNegociacoesDoPeriodo();
+
             negociacoes.filter(novaNegociacao => !this._negociacoes.paraArray().some(negociacaoExistente => novaNegociacao.equals(negociacaoExistente))).forEach(negociacao => this._negociacoes.adiciona(negociacao));
             this._mensagem.texto = "Negociações do período importadas com sucesso";
-          }).catch(err => this._mensagem.texto = err);
+          } catch (error) {
+            this._mensagem.texto = error.message;
+          }
         }
       }
 
