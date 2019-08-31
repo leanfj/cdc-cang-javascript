@@ -1,4 +1,5 @@
 import { NegociacaoController } from "./controllers/NegociacaoController.js";
+import { Debounce } from "./util/Debounce.js";
 
 //Instacia do Controller
 const controller = new NegociacaoController();
@@ -13,5 +14,8 @@ $("#botao-apaga").addEventListener("click", controller.apaga.bind(controller));
 
 $("#botao-importa").addEventListener(
   "click",
-  controller.importaNegociacoes.bind(controller)
+  Debounce(() => {
+    console.log("Executou o Debouce");
+    controller.importaNegociacoes();
+  }, 1000)
 );
