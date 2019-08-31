@@ -1,12 +1,25 @@
-import { ProxyFactory } from "./ProxyFactory.js";
+System.register(["./ProxyFactory.js"], function (_export, _context) {
+  "use strict";
 
-export class Bind {
-  constructor(model, view, ...props) {
-    const proxy = ProxyFactory.create(model, props, model => {
-      view.update(model);
-    });
-    view.update(model);
+  var ProxyFactory;
+  return {
+    setters: [function (_ProxyFactoryJs) {
+      ProxyFactory = _ProxyFactoryJs.ProxyFactory;
+    }],
+    execute: function () {
+      class Bind {
+        constructor(model, view, ...props) {
+          const proxy = ProxyFactory.create(model, props, model => {
+            view.update(model);
+          });
+          view.update(model);
 
-    return proxy;
-  }
-}
+          return proxy;
+        }
+      }
+
+      _export("Bind", Bind);
+    }
+  };
+});
+//# sourceMappingURL=Bind.js.map

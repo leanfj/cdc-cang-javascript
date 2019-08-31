@@ -1,17 +1,26 @@
-import { NegociacaoController } from "./controllers/NegociacaoController";
+System.register(["./controllers/NegociacaoController.js"], function (_export, _context) {
+  "use strict";
 
-//Instacia do Controller
-const controller = new NegociacaoController();
+  var NegociacaoController;
+  return {
+    setters: [function (_controllersNegociacaoControllerJs) {
+      NegociacaoController = _controllersNegociacaoControllerJs.NegociacaoController;
+    }],
+    execute: function () {
 
-const $ = document.querySelector.bind(document);
+      //Instacia do Controller
+      const controller = new NegociacaoController();
 
-//Captura do elemento no HTML
-//Utilização do bind para passar o contexto de this para o controller
-$(".form").addEventListener("submit", controller.adiciona.bind(controller));
+      const $ = document.querySelector.bind(document);
 
-$("#botao-apaga").addEventListener("click", controller.apaga.bind(controller));
+      //Captura do elemento no HTML
+      //Utilização do bind para passar o contexto de this para o controller
+      $(".form").addEventListener("submit", controller.adiciona.bind(controller));
 
-$("#botao-importa").addEventListener(
-  "click",
-  controller.importaNegociacoes.bind(controller)
-);
+      $("#botao-apaga").addEventListener("click", controller.apaga.bind(controller));
+
+      $("#botao-importa").addEventListener("click", controller.importaNegociacoes.bind(controller));
+    }
+  };
+});
+//# sourceMappingURL=app.js.map
