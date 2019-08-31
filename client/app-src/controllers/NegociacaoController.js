@@ -4,8 +4,7 @@ import {
   DateConverter,
   Mensagem,
   MensagemView,
-  NegociacoesView,
-  View
+  NegociacoesView
 } from "../ui/index.js";
 import { Bind, getNegociacaoDao } from "../util/index.js";
 
