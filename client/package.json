@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-plugin-transform-es2015-modules-systemjs": "^6.24.1"
+    "babel-plugin-transform-es2015-modules-systemjs": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1"
   }
 }
