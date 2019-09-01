@@ -4,4 +4,5 @@ export * from "./DaoFactory.js";
 export * from "./ApplicationException.js";
 export * from "./HttpService.js";
 export * from "./ProxyFactory.js";
-export * from "./Debounce.js";
+// export * from "./Debounce.js";
+export * from "./decorators/Debounce.js";

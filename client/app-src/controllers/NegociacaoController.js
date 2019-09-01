@@ -5,7 +5,12 @@ import {
   MensagemView,
   NegociacoesView
 } from "../ui/index.js";
-import { Bind, getNegociacaoDao, getExceptionMessage } from "../util/index.js";
+import {
+  Bind,
+  getNegociacaoDao,
+  getExceptionMessage,
+  Debounce
+} from "../util/index.js";
 
 export class NegociacaoController {
   constructor() {
@@ -58,6 +63,7 @@ export class NegociacaoController {
     }
   }
 
+  @Debounce()
   async adiciona(event) {
     try {
       //Previnir evento padrão
@@ -108,6 +114,7 @@ export class NegociacaoController {
     }
   }
 
+  @Debounce(1500)
   async importaNegociacoes() {
     /* const listaNegociacoes = [];
 
