@@ -4,7 +4,7 @@ System.register([], function (_export, _context) {
   return {
     setters: [],
     execute: function () {
-      class Negociacao {
+      let Negociacao = class Negociacao {
         //Definir propriedades de classes
         //parametros podem ser definidos na funçao constructor
         constructor(_data, _quantidade, _valor) {
@@ -46,7 +46,7 @@ System.register([], function (_export, _context) {
 
           return JSON.stringify(this) == JSON.stringify(negociacao);
         }
-      }
+      };
 
       _export("Negociacao", Negociacao);
     }

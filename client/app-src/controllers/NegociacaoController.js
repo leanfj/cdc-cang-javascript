@@ -9,19 +9,23 @@ import {
   Bind,
   getNegociacaoDao,
   getExceptionMessage,
-  Debounce
+  Debounce,
+  Controller
 } from "../util/index.js";
 
+@Controller("#data", "#quantidade", "#valor")
 export class NegociacaoController {
-  constructor() {
+  constructor(_inputData, _inputQuantidade, _inputValor) {
     //Busca adcionadas ao constructor para evitar pecorrer o DOM
     //bind para manter o contexto do this em document
-    const $ = document.querySelector.bind(document);
+    // const $ = document.querySelector.bind(document);
 
     //elementos HTML
-    this._inputData = $("#data");
-    this._inputQuantidade = $("#quantidade");
-    this._inputValor = $("#valor");
+    // this._inputData = inputData;
+    // this._inputQuantidade = inputQuantidade;
+    // this._inputValor = inputValor;
+
+    Object.assign(this, { _inputData, _inputQuantidade, _inputValor });
 
     // this._negociacoes = ProxyFactory.create(
     //   new Negociacoes(),

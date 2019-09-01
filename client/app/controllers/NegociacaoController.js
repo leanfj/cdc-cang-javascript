@@ -1,7 +1,7 @@
 System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], function (_export, _context) {
   "use strict";
 
-  var Negociacao, NegociacaoService, Negociacoes, DateConverter, Mensagem, MensagemView, NegociacoesView, Bind, getNegociacaoDao, getExceptionMessage, Debounce;
+  var Negociacao, NegociacaoService, Negociacoes, DateConverter, Mensagem, MensagemView, NegociacoesView, Bind, getNegociacaoDao, getExceptionMessage, Debounce, Controller;
   return {
     setters: [function (_domainIndexJs) {
       Negociacao = _domainIndexJs.Negociacao;
@@ -17,6 +17,7 @@ System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], fu
       getNegociacaoDao = _utilIndexJs.getNegociacaoDao;
       getExceptionMessage = _utilIndexJs.getExceptionMessage;
       Debounce = _utilIndexJs.Debounce;
+      Controller = _utilIndexJs.Controller;
     }],
     execute: function () {
       function _asyncToGenerator(fn) {
@@ -77,18 +78,20 @@ System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], fu
         return desc;
       }
 
-      var _dec, _dec2, _desc, _value, _class;
+      var _dec, _dec2, _dec3, _class, _desc, _value, _class2;
 
-      let NegociacaoController = (_dec = Debounce(), _dec2 = Debounce(1500), (_class = class NegociacaoController {
-        constructor() {
+      let NegociacaoController = (_dec = Controller("#data", "#quantidade", "#valor"), _dec2 = Debounce(), _dec3 = Debounce(1500), _dec(_class = (_class2 = class NegociacaoController {
+        constructor(_inputData, _inputQuantidade, _inputValor) {
           //Busca adcionadas ao constructor para evitar pecorrer o DOM
           //bind para manter o contexto do this em document
-          const $ = document.querySelector.bind(document);
+          // const $ = document.querySelector.bind(document);
 
           //elementos HTML
-          this._inputData = $("#data");
-          this._inputQuantidade = $("#quantidade");
-          this._inputValor = $("#valor");
+          // this._inputData = inputData;
+          // this._inputQuantidade = inputQuantidade;
+          // this._inputValor = inputValor;
+
+          Object.assign(this, { _inputData, _inputQuantidade, _inputValor });
 
           // this._negociacoes = ProxyFactory.create(
           //   new Negociacoes(),
@@ -231,7 +234,7 @@ System.register(["../domain/index.js", "../ui/index.js", "../util/index.js"], fu
             }
           })();
         }
-      }, (_applyDecoratedDescriptor(_class.prototype, "adiciona", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "adiciona"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "importaNegociacoes", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "importaNegociacoes"), _class.prototype)), _class));
+      }, (_applyDecoratedDescriptor(_class2.prototype, "adiciona", [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, "adiciona"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "importaNegociacoes", [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, "importaNegociacoes"), _class2.prototype)), _class2)) || _class);
 
       _export("NegociacaoController", NegociacaoController);
     }

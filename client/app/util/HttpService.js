@@ -4,7 +4,7 @@ System.register([], function (_export, _context) {
   return {
     setters: [],
     execute: function () {
-      class HttpService {
+      let HttpService = class HttpService {
         get(url) {
           return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
@@ -26,7 +26,7 @@ System.register([], function (_export, _context) {
             xhr.send();
           });
         }
-      }
+      };
 
       _export("HttpService", HttpService);
     }
