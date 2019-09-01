@@ -1,7 +1,13 @@
+import { Obrigatorio } from "../../util/index.js";
+
 export class Negociacao {
   //Definir propriedades de classes
   //parametros podem ser definidos na funçao constructor
-  constructor(_data, _quantidade, _valor) {
+  constructor(
+    _data = Obrigatorio("data"),
+    _quantidade = Obrigatorio("quantidade"),
+    _valor = Obrigatorio("valor")
+  ) {
     //Copia de propriedades
     //Variaveis de argumentos passada para copia em objeto literais Es06
     Object.assign(this, { _quantidade, _valor });

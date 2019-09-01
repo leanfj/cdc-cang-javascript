@@ -7,3 +7,4 @@ export * from "./ProxyFactory.js";
 // export * from "./Debounce.js";
 export * from "./decorators/Debounce.js";
 export * from "./decorators/Conroller.js";
+export * from "./Obrigatorio.js";

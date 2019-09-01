@@ -1,13 +1,16 @@
-System.register([], function (_export, _context) {
+System.register(["../../util/index.js"], function (_export, _context) {
   "use strict";
 
+  var Obrigatorio;
   return {
-    setters: [],
+    setters: [function (_utilIndexJs) {
+      Obrigatorio = _utilIndexJs.Obrigatorio;
+    }],
     execute: function () {
       let Negociacao = class Negociacao {
         //Definir propriedades de classes
         //parametros podem ser definidos na funçao constructor
-        constructor(_data, _quantidade, _valor) {
+        constructor(_data = Obrigatorio("data"), _quantidade = Obrigatorio("quantidade"), _valor = Obrigatorio("valor")) {
           //Copia de propriedades
           //Variaveis de argumentos passada para copia em objeto literais Es06
           Object.assign(this, { _quantidade, _valor });

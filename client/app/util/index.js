@@ -1,4 +1,4 @@
-System.register(["./Bind.js", "./ConnectionFactory.js", "./DaoFactory.js", "./ApplicationException.js", "./HttpService.js", "./ProxyFactory.js", "./decorators/Debounce.js", "./decorators/Conroller.js"], function (_export, _context) {
+System.register(["./Bind.js", "./ConnectionFactory.js", "./DaoFactory.js", "./ApplicationException.js", "./HttpService.js", "./ProxyFactory.js", "./decorators/Debounce.js", "./decorators/Conroller.js", "./Obrigatorio.js"], function (_export, _context) {
   "use strict";
 
   return {
@@ -66,6 +66,14 @@ System.register(["./Bind.js", "./ConnectionFactory.js", "./DaoFactory.js", "./Ap
       }
 
       _export(_exportObj8);
+    }, function (_ObrigatorioJs) {
+      var _exportObj9 = {};
+
+      for (var _key9 in _ObrigatorioJs) {
+        if (_key9 !== "default" && _key9 !== "__esModule") _exportObj9[_key9] = _ObrigatorioJs[_key9];
+      }
+
+      _export(_exportObj9);
     }],
     execute: function () {}
   };
