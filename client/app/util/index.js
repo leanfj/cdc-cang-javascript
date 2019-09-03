@@ -1,4 +1,4 @@
-System.register(["./Bind.js", "./ConnectionFactory.js", "./DaoFactory.js", "./ApplicationException.js", "./HttpService.js", "./ProxyFactory.js", "./decorators/Debounce.js", "./decorators/Conroller.js", "./Obrigatorio.js"], function (_export, _context) {
+System.register(["./Bind.js", "./ConnectionFactory.js", "./DaoFactory.js", "./ApplicationException.js", "./HttpService.js", "./ProxyFactory.js", "./Obrigatorio.js", "./decorators/Debounce.js", "./decorators/Controller.js", "./decorators/BindEvent.js"], function (_export, _context) {
   "use strict";
 
   return {
@@ -50,30 +50,38 @@ System.register(["./Bind.js", "./ConnectionFactory.js", "./DaoFactory.js", "./Ap
       }
 
       _export(_exportObj6);
-    }, function (_decoratorsDebounceJs) {
+    }, function (_ObrigatorioJs) {
       var _exportObj7 = {};
 
-      for (var _key7 in _decoratorsDebounceJs) {
-        if (_key7 !== "default" && _key7 !== "__esModule") _exportObj7[_key7] = _decoratorsDebounceJs[_key7];
+      for (var _key7 in _ObrigatorioJs) {
+        if (_key7 !== "default" && _key7 !== "__esModule") _exportObj7[_key7] = _ObrigatorioJs[_key7];
       }
 
       _export(_exportObj7);
-    }, function (_decoratorsConrollerJs) {
+    }, function (_decoratorsDebounceJs) {
       var _exportObj8 = {};
 
-      for (var _key8 in _decoratorsConrollerJs) {
-        if (_key8 !== "default" && _key8 !== "__esModule") _exportObj8[_key8] = _decoratorsConrollerJs[_key8];
+      for (var _key8 in _decoratorsDebounceJs) {
+        if (_key8 !== "default" && _key8 !== "__esModule") _exportObj8[_key8] = _decoratorsDebounceJs[_key8];
       }
 
       _export(_exportObj8);
-    }, function (_ObrigatorioJs) {
+    }, function (_decoratorsControllerJs) {
       var _exportObj9 = {};
 
-      for (var _key9 in _ObrigatorioJs) {
-        if (_key9 !== "default" && _key9 !== "__esModule") _exportObj9[_key9] = _ObrigatorioJs[_key9];
+      for (var _key9 in _decoratorsControllerJs) {
+        if (_key9 !== "default" && _key9 !== "__esModule") _exportObj9[_key9] = _decoratorsControllerJs[_key9];
       }
 
       _export(_exportObj9);
+    }, function (_decoratorsBindEventJs) {
+      var _exportObj10 = {};
+
+      for (var _key10 in _decoratorsBindEventJs) {
+        if (_key10 !== "default" && _key10 !== "__esModule") _exportObj10[_key10] = _decoratorsBindEventJs[_key10];
+      }
+
+      _export(_exportObj10);
     }],
     execute: function () {}
   };

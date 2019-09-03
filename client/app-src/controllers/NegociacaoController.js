@@ -10,7 +10,8 @@ import {
   getNegociacaoDao,
   getExceptionMessage,
   Debounce,
-  Controller
+  Controller,
+  BindEvent
 } from "../util/index.js";
 
 @Controller("#data", "#quantidade", "#valor")
@@ -67,6 +68,7 @@ export class NegociacaoController {
     }
   }
 
+  @BindEvent("submit", ".form")
   @Debounce()
   async adiciona(event) {
     try {
@@ -107,6 +109,7 @@ export class NegociacaoController {
     this._inputData.focus();
   }
 
+  @BindEvent("click", "#botao-apaga")
   async apaga() {
     try {
       const dao = await getNegociacaoDao();
@@ -118,6 +121,7 @@ export class NegociacaoController {
     }
   }
 
+  @BindEvent("click", "#botao-importa")
   @Debounce(1500)
   async importaNegociacoes() {
     /* const listaNegociacoes = [];
