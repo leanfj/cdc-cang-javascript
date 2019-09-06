@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../app-src/util/Obrigatorio.js"],"names":["Obrigatorio","parametro","Error"],"mappings":";;;AAAO,WAASA,WAAT,CAAqBC,SAArB,EAAgC;AACrC,UAAM,IAAIC,KAAJ,CAAW,GAAED,SAAU,6BAAvB,CAAN;AACD;;yBAFeD,W","file":"Obrigatorio.js","sourcesContent":["export function Obrigatorio(parametro) {\n  throw new Error(`${parametro} é um parametro obrigatorio`);\n}\n"]}
