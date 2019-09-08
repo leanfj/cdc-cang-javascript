@@ -17,7 +17,7 @@ const config = {
   body
 };
 
-fetch("/negociacoes", config).then(() => {
+fetch("http://localhost:3000/negociacoes", config).then(() => {
   console.log("Dado enviado com sucesso");
 });
 
