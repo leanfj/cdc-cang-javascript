@@ -33,6 +33,8 @@ if (process.env.NODE_ENV == "production") {
       canPrint: true
     })
   );
+
+  plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
 }
 
 module.exports = {
