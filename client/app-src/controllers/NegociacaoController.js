@@ -1,4 +1,4 @@
-import { Negociacao, NegociacaoService, Negociacoes } from "../domain";
+import { Negociacao, Negociacoes } from "../domain";
 import { DateConverter, Mensagem, MensagemView, NegociacoesView } from "../ui";
 import {
   Bind,
@@ -50,7 +50,7 @@ export class NegociacaoController {
       "texto"
     );
 
-    this._service = new NegociacaoService();
+    // this._service = new NegociacaoService();
     this._init();
   }
   async _init() {
@@ -153,7 +153,13 @@ export class NegociacaoController {
     //   .catch(err => (this._mensagem.texto = err));
 
     try {
-      const negociacoes = await this._service.obtemNegociacoesDoPeriodo();
+      const { NegociacaoService } = await import(
+        "../domain/negociacao/NegociacaoService"
+      );
+
+      const service = new NegociacaoService();
+
+      const negociacoes = await service.obtemNegociacoesDoPeriodo();
 
       negociacoes
         .filter(
