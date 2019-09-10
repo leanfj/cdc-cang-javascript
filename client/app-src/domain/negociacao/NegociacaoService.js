@@ -1,6 +1,6 @@
-import { HttpService } from "../../util/HttpService.js";
-import { Negociacao } from "./Negociacao.js";
-import { ApplicationException } from "../../util/ApplicationException.js";
+import { HttpService } from "../../util/HttpService";
+import { Negociacao } from "./Negociacao";
+import { ApplicationException } from "../../util/ApplicationException";
 
 export class NegociacaoService {
   constructor() {

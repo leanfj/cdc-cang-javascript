@@ -1,13 +1,13 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 
-import "bootstrap/js/modal.js";
+import "bootstrap/js/modal";
 
 import "../css/main.css";
 
-import { NegociacaoController } from "./controllers/NegociacaoController.js";
+import { NegociacaoController } from "./controllers/NegociacaoController";
 
-import { Negociacao } from "./domain/index.js";
+import { Negociacao } from "./domain";
 
 const negociacao = new Negociacao(new Date(), 1, 100);
 

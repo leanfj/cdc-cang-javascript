@@ -1,4 +1,4 @@
-import { Negociacao } from "./Negociacao.js";
+import { Negociacao } from "./Negociacao";
 
 export class NegociacaoDao {
   constructor(connection) {
